@@ -6,28 +6,18 @@ var completedTasks = document.getElementById("completed-tasks"); // completed ta
 
 //Add a new task
 var addTask = function() {
-<<<<<<< HEAD
   console.log("Add task...");
   //When the button is pressed
-  //Create a new list item with the text from #new-task:
-  //input (checkbox)
-    //label
-    //input (text)
-    //button.edit
-    //button.delete
-    //Each elements, needs modified and appended
-}
-=======
-  // on button press, create a new list item from #new-task input
-    // input (checkbox)
-    // label
-    // input (text)
-    // button.edit
-    // button.delete
-    // each element needs modified and appended
-    console.log("add task…")
+  if (taskInput != "") {
+    //Create a new list item with the text from #new-task:
+    //input (checkbox)
+      //label
+      //input (text)
+      //button.edit
+      //button.delete
+      //Each elements, needs modified and appended
+  };
 };
->>>>>>> 1a26d151992ba6d86ae739f46ed0c582f6cae36b
 
 // incomplete-tasks
 // if checkbox is checked, move task to completed-tasks
@@ -42,49 +32,65 @@ var editTask = function(){
     // input value becomes the label's text
 
   // toggle .editMode to the parent
-<<<<<<< HEAD
-  console.log("edit task…");
-}
-=======
-  console.log("edit task…")
+  console.log("edit task...");
 };
->>>>>>> 1a26d151992ba6d86ae739f46ed0c582f6cae36b
 
 var deleteTask = function() {
 // if delete button clicked, delete entry
   // When the Delete button is pressed
     // Remove the parent list item from the ul
-<<<<<<< HEAD
-    console.log("delete task…");
-}
-=======
-    console.log("delete task…")
+    console.log("delete task...");
 };
->>>>>>> 1a26d151992ba6d86ae739f46ed0c582f6cae36b
 
 var taskCompleted = function() {
 // .completed-tasks
   // When the checkbox is checked
     // Append the task list item to the #completed-tasks
-<<<<<<< HEAD
-    console.log("task completed…");
-}
-=======
-    console.log("task completed…")
+    console.log("task completed...");
 };
->>>>>>> 1a26d151992ba6d86ae739f46ed0c582f6cae36b
 
 var incompleteTask = function() {
 // if checkbox unchecked, move task to #incomplete-tasks
   // When the checkbox is unchecked
     // Append the task list item to the #incomplete-tasks
-<<<<<<< HEAD
     console.log("incomplete task…");
-}
-=======
-    console.log("incomplete task…")
 };
->>>>>>> 1a26d151992ba6d86ae739f46ed0c582f6cae36b
+
+var checkboxEventHandler = function() {
+  console.log("checkbox changed");
+};
+
+var bindTaskEvents = function(taskListItem, checkboxEventHandler) {
+  console.log("Bind list item events");
+  var editButton = taskListItem.querySelector('button[class=edit]');
+  var deleteButton = taskListItem.querySelector('button[class=delete]');
+  var checkbox = taskListItem.querySelector('input[type=checkbox]');
+
+  // select its children
+  // bind editTask to edit button
+  editButton.onclick = editTask;
+  // bind deleteTask to delete button
+  deleteButton.onclick = deleteTask;
+  // bind checkboxEventHandler to checkbox
+  checkbox.onchange = checkboxEventHandler;
+};
 
 // Set the click handler to the addTask function
 addButton.onclick = addTask;
+
+
+// cycle over incompleteTasksHolder ul list items
+for (var i = 0; i < incompleteTasks.children.length; i++) {
+  // for each list item
+  // bind events to list item's children bindTaskEvents(taskCompleted)
+  bindTaskEvents(incompleteTasks.children[i], taskCompleted);
+};
+
+
+
+// cycle over completedTasksHolder ul list items
+for (var i = 0; i < completedTasks.children.length; i++) {
+  // for each list item
+  // bind events to list item's children bindTaskEvents(taskIncomplete)
+  bindTaskEvents(completedTasks.children[i], incompleteTask);
+};
