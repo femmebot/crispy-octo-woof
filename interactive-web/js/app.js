@@ -125,7 +125,16 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
 };
 
 // Set the click handler to the addTask function
-addButton.onclick = addTask;
+// addButton.onclick = addTask;
+
+var ajaxRequest = function() {
+  console.log("AJAX request");
+}
+
+//Set the click handler to the addTask function
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", ajaxRequest);
+
 
 // cycle over incompleteTasksHolder ul list items
 for (var i = 0; i < incompleteTasksHolder.children.length; i++) {
