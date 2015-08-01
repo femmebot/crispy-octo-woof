@@ -55,24 +55,15 @@ p {
 	text-align: center;
 	color: #777;
 }
-<<<<<<< HEAD
-
-/** Start Coding Here **/
 
 /**
-=======
-/** Start Coding Here **/
 
-/** 
->>>>>>> 3162cdcd680fdaa96020e5cc0fdd42c75a68f64a
 Modify CSS to hide links on small width and show button and select
 Also hides select and button on larger width and show's links
 **/
 
-<<<<<<< HEAD
+
 /*
-=======
->>>>>>> 3162cdcd680fdaa96020e5cc0fdd42c75a68f64a
 @media (min-width: 320px) and (max-width: 568px) {
   #menu ul {
     display:none;
@@ -83,23 +74,24 @@ Also hides select and button on larger width and show's links
   #menu select, #menu button {
     display:none;
   }
-<<<<<<< HEAD
+
 }*/
-=======
-}
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 >>>>>>> 3162cdcd680fdaa96020e5cc0fdd42c75a68f64a
+=======
+}*/
+>>>>>>> d1c26f5db8ca7744dced89b0134a9b83439c292f
