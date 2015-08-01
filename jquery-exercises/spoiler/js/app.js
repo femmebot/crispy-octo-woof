@@ -6,9 +6,10 @@ $('.spoiler').append('<button>Reveal Spoiler!</button>');
   // get rid of button
 $( "button" ).click(function() {
     // alert( "Handler for .click() called." );
-    $(this).siblings('span').show();
+    // reveal the spoiler
+    $(this).siblings('span').show(); // also see prev() to select previous sibling 
+    // remove button
     $(this).remove();
 });
-  // reveal the spoiler
 
 // $('.spoiler span').text('Reveal Spoiler!');
