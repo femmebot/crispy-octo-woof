@@ -29,7 +29,7 @@ $('#menu a').each(function(){
 // Create a button
 var $button = $('<button>Go</button>');
 $('#menu').append($button);
-console.log($button);
+
 
 // Bind click to button
 $button.click(function(){
