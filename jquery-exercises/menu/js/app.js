@@ -22,6 +22,9 @@ $('#menu a').each(function(){
   $select.append($option);
 
   // Selected list item becomes the selected option in the select menu
+  if ($anchor.parent().hasClass('selected')) {
+    $option.prop('selected', true);
+  }
 
   // $select.append('<option value="$href">$anchor.text()</option');
 });
@@ -35,6 +38,7 @@ $('#menu').append($button);
 $button.click(function(){
   // Go to select's location
   window.location = $select.val();
+  // var $selectMenuItem = $select.text();
 });
 
 // Modify CSS to hide links on small screen widths
