@@ -19,6 +19,8 @@ Reference
 * [Document](https://developer.mozilla.org/en-US/docs/Web/API/Document)
 * [HTMLCollection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection)
 
+#### Object Literal
+
 To access the value for name property, `person['name']` is the same as `person.name`
 
 You can assign or add a new property: `person.country = 'Brazil'`
@@ -27,6 +29,13 @@ To retrieve value, use square brackets, not dot notation:
 ```
 for ( var propName in objectName ) {
   \\ do something
-  console.log(prop, ': ', objectName[propName]);
+  console.log(propName, ': ', objectName[propName]);
 };
-``
+```
+
+#### jQuery
+
+[jQuery reference](http://api.jquery.com/)
+
+
+#### JSON and AJAX
