@@ -40,23 +40,11 @@ a {
 }
 
 #overlay img {
- margin-top: 10%; 
+	margin: 10% auto 0 auto;
+	padding: 20px;
+	background-color: #eee;
 }
 
 #overlay p {
- color:white; 
+	 color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
