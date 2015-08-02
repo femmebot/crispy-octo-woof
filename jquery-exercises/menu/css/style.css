@@ -41,7 +41,7 @@ ul li.selected a {
 }
 
 select {
-	width: 90%;
+	width: 94%;
 	margin: 11px  0 11px 2%;
 	float: left;
 }
@@ -55,10 +55,10 @@ p {
 	text-align: center;
 	color: #777;
 }
-button {
+/*button {
 	margin-top: 12px;
 	padding: 0 6px;
-}
+}*/
 /**
 Modify CSS to hide links on small width and show button and select
 Also hides select and button on larger width and show's links

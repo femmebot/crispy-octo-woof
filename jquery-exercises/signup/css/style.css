@@ -80,5 +80,8 @@ input[type="submit"] {
   outline: none;
   padding: .8em 0;
   text-shadow: 0 1px #68B25B;
-
+}
+input[type="submit"]:disabled {
+  opacity: .3;
+  cursor: not-allowed;
 }

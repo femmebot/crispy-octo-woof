@@ -29,16 +29,21 @@ $('#menu a').each(function(){
   // $select.append('<option value="$href">$anchor.text()</option');
 });
 
-// Create a button
-var $button = $('<button>Go</button>');
-$('#menu').append($button);
+// // Create a button
+// var $button = $('<button>Go</button>');
+// $('#menu').append($button);
+//
+//
+// // Bind click to button
+// $button.click(function(){
+//   // Go to select's location
+//   window.location = $select.val();
+//   // var $selectMenuItem = $select.text();
+// });
 
-
-// Bind click to button
-$button.click(function(){
-  // Go to select's location
+// Instead of a button, bind change listener to select
+$select.change(function(){
   window.location = $select.val();
-  // var $selectMenuItem = $select.text();
 });
 
 // Modify CSS to hide links on small screen widths
