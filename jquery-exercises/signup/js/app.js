@@ -59,6 +59,8 @@ function enableSubmitEvent(){
 
 enableSubmitEvent();
 
+$username.keyup(enableSubmitEvent);
+
 // when event happens on #password input
 $password.focus(passwordEvent).keyup(passwordEvent).keyup(passwordConfirmEvent).keyup(enableSubmitEvent);
 
