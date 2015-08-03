@@ -31,8 +31,8 @@ function addNewColor(){
   $newColorClass = 'color' + $('.controls li').length;
   $newColor = $('.controls li').last().addClass($newColorClass);
   $newColor.css('background-color', getRGB());
-  // $newColor.addClass('selected');
-  $newColor.click(switchPaintColor);
+  $newColor.addClass('selected');
+  $newColor.click(switchPaintColor); // bind switchPaintColor event handler
 };
 // when user clicks on a new control color
   // deselect the selected color
