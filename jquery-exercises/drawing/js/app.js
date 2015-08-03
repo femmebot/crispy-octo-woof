@@ -4,13 +4,19 @@ var $newColorButton = $('#revealColorSelect');
 var $slidersInput = $('.sliders input');
 var $color = $('.selected').css('background-color');
 var $newColor;
+var $selectedColorRGB;
+var $canvas = $('canvas');
+// need to access first canvas in order to call a special method, getContext()
+var context = $('canvas')[0].getContext('2d');  // same as document.getElementsByTagName('canvas')[0];
 
-// var $rgb;
+
 
 function switchPaintColor() {
-  // console.log('switchPaintColor event called');
   $(this).siblings().removeClass('selected');
   $(this).addClass('selected');
+  $selectedColor = $(this).css('background-color');
+  // console.log('switchPaintColor event called');
+  // console.log($selectedColor);
 };
 
 function toggleAddColorMenu() {
@@ -30,9 +36,14 @@ function addNewColor(){
   $colorList = $('.controls ul').append('<li></li>');
   $newColorClass = 'color' + $('.controls li').length;
   $newColor = $('.controls li').last().addClass($newColorClass);
-  $newColor.css('background-color', getRGB());
+  $selectedColorRGB = getRGB();
+  $newColor.css('background-color', $selectedColorRGB);
   $newColor.addClass('selected');
-  $newColor.click(switchPaintColor); // bind switchPaintColor event handler
+
+  // bind switchPaintColor event handler
+  // $newColor.click(switchPaintColor);
+  $newColor.on('click', switchPaintColor);
+  // console.log($selectedColorRGB);
 };
 // when user clicks on a new control color
   // deselect the selected color
@@ -52,3 +63,8 @@ $slidersInput.change(getRGB);
 $('#addNewColor').click(addNewColor);
 
 // on mouse events on the canvas, draw lines
+
+context.beginPath();
+context.moveTo(10,10);
+context.lineTo(20,10);
+context.stroke();
