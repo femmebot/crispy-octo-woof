@@ -73,6 +73,8 @@ $canvas.mousedown(function( e ){
     context.moveTo(lastEvent.offsetX,lastEvent.offsetY);
     context.lineTo(e.offsetX, e.offsetY); // move to where event is
     context.strokeStyle = $selectedColorRGB;
+    context.lineWidth = 4;
+    context.lineCap = 'round';
     context.stroke();
     lastEvent = e;
   };
