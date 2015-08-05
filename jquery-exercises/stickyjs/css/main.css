@@ -186,6 +186,14 @@ nav a.active {
   color: #fff;
 }
 
+/*Header*/
+header {
+  background-color: rgba(255, 255, 255, .9);
+}
+.is-sticky header {
+  background-color: rgba(0, 0, 0, .8);
+}
+
 /*Footer*/
 footer {
   margin: 80px 0;
@@ -337,12 +345,3 @@ footer {
     font-size: 20px;
   }
 }
-
-
-
-
-
-
-
-
-
