@@ -1,9 +1,13 @@
 # AJAX
 
 How AJAX works:
+
 1. Create an XMLHTTP Request Object
+
 2. Create a callback function
+
 3. Open a request
+
 4. Send the request
 
 ```
