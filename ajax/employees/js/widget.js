@@ -1,7 +1,7 @@
-// use jQuery shorthand $.getJSON(url, data, callback function)
 $.getJSON('data/employees.json', function(response){
   var $statusHTML = $('<ul class="bulleted"></ul>');
-  //$.each(data, function(index, value){})
+
+  // Use  jQuery's $.each() method, i.e., $.each(data, function(index, value){})
   $.each(response, function(index, employee){
     if (employee.inoffice) {
       $statusHTML.append( '<li class="in">' + employee.name + '</li>' );
@@ -10,6 +10,8 @@ $.getJSON('data/employees.json', function(response){
     };
     // console.log($statusHTML);
   });
+
   // insert the full list into #employeeList
   $('#employeeList').html($statusHTML);
+
 });
