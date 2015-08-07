@@ -1,3 +1,4 @@
+// use jQuery shorthand $.getJSON(url, data, callback function)
 $.getJSON('data/employees.json', function(response){
   var $statusHTML = $('<ul class="bulleted"></ul>');
   //$.each(data, function(index, value){})
