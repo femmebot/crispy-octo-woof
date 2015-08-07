@@ -37,5 +37,29 @@ for ( var propName in objectName ) {
 
 [jQuery reference](http://api.jquery.com/)
 
+$.get() to load data from the server using a HTTP GET request
+
+$.get( url [, data ] [, success ] [, dataType ] ) where _url_ is a string containing the URL to which the request is sent; _data_ is a plain object or string that is sent to the server with the request; _success_ is a callback function that is executed if the request succeeds. (Required if `dataType` is provided, but you can use `null` or `jQuery.noop` as a placeholder;_dataType_ is a string indicating the type of data expected from the server. (Default: Intelligent Guess (xml, json, script, or html).)
+
+```
+$.get()
+
+```
+
+```
+$.getJSON(url, function( data));
+```
+
+Above jQuery shorthand is the same as:
+```
+$.ajax({
+  dataType: "json",
+  url: url,
+  data: data,
+  success: success
+});
+```
+[$.getJSON reference](http://api.jquery.com/jQuery.getJSON/)
+
 
 #### JSON and AJAX
