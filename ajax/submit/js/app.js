@@ -5,14 +5,17 @@ $('form').submit(function(e) {
   e.preventDefault();
 
   // the AJAX part
-  var $flickerAPI = 'http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?';
+  // https://api.flickr.com/services/rest/?method=flickr.urls.lookupGallery&api_key=5a633d70f60f00ae9bf7ed5b5adbd67f&format=json
+
+  var $flickerAPI = 'http://api.flickr.com/services/feeds/photos_public.gne?id=35034351041@N01&jsoncallback=?';
+  // var $flickerAPI = 'https://api.flickr.com/services/rest/?method=flickr.urls.lookupGallery&api_key=5a633d70f60f00ae9bf7ed5b5adbd67f&format=json?jsoncallback=?';
   var $searchQuery = $('input[type="search"]').val();
   var $flickrOptions = {
     tags: $searchQuery,
     format: "json"
   };
   // author_id: "35034351041@N01";
-  
+
   console.log($searchQuery);
 
 
