@@ -22,9 +22,13 @@ $('form').submit(function(e) {
   function displayPhotos(data) {
     var $photoHTML = '<ul>';
     $.each(data.items,function(i,photo) {
-      $photoHTML += '<li class="grid-25 tablet-grid-50">';
+      $photoHTML += '<li>';
+      // $photoHTML += '<li class="grid-25 tablet-grid-50">';
       $photoHTML += '<a href="' + photo.link + '" class="image">';
-      $photoHTML += '<img src="' + photo.media.m + '"></a></li>';
+      var thumbnailURL = photo.media.m;
+      var imgURL = thumbnailURL.replace("_m.jpg", "_b.jpg");  // converts thumbnail to larger photo
+      console.log(imgURL);
+      $photoHTML += '<img src="' + imgURL + '"></a></li>';
     }); // end each
     $photoHTML += '</ul>';
     $('#photos').html($photoHTML);
