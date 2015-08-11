@@ -38,10 +38,30 @@
 // }
 
 // now it returns a value
-var dice = {
-  sides: 6,
-  roll: function () {
-    var randomNumber = Math.floor(Math.random() * this.sides) + 1;
-    return (randomNumber);
-  }
+// var dice = {
+//   sides: 6,
+//   roll: function () {
+//     var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+//     return (randomNumber);
+//   }
+// };
+
+// rewriting dice as a constructor function
+// function Dice (sides) {
+//   this.sides = sides;    // note: this = {};
+//   this.roll = function(){
+//     var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+//     return randomNumber;
+//   }
+// };
+
+// Rewriting as a prototype
+function Dice (sides) {
+  this.sides = sides;
+};
+
+// Dice references the constructor, roll references the property name
+Dice.prototype.roll = function diceRoll(){
+  var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+  return randomNumber;
 }
