@@ -668,7 +668,7 @@ body {
     padding-right: 15px;
 
   }
- 
+
 
   .grid-parent {
     padding-left: 0;
@@ -833,7 +833,7 @@ body {
   .mobile-grid-35 {
     float: left;
     width: 35%;
-    
+
   }
 
   .mobile-prefix-35 {
@@ -1358,7 +1358,7 @@ body {
   .tablet-grid-35 {
     float: left;
     width: 35%;
-    
+
   }
 
   .tablet-prefix-35 {
@@ -1975,7 +1975,7 @@ ul.filter-select button:after {
   min-height: 240px;
   background: #edeff0;
   text-align: center;
-  height: 260px;
+  /*height: 260px;*/
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1996,8 +1996,8 @@ ul.filter-select button:after {
   vertical-align: middle;
 }
 #photos img {
-  max-width: 80%;
-  max-height: 200px;
+  /*max-width: 80%;
+  max-height: 200px;*/
   vertical-align: middle;
   -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
