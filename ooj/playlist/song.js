@@ -1,17 +1,9 @@
 function Song(title, artist, duration) {
-  this.title = title;
+  Media.call(this, title, duration);  // the first parameter, this, sets itself as a new instance of Song
   this.artist = artist;
-  this.duration = duration;
-  this.isPlaying = false;
 }
 
-Song.prototype.play = function() {
-  this.isPlaying = true;
-};
-
-Song.prototype.stop = function() {
-  this.isPlaying = false;
-};
+Song.prototype = Object.create(Media.prototype);  //  creates a prototype chain that copies the Media object's properties
 
 Song.prototype.toHTML = function() {
   if (this.isPlaying){
