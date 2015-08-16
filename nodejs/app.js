@@ -1,31 +1,15 @@
 // console.log("Hello World");
+var profile = require("./profile.js");  // .js at the end is optional
+var users = ["chalkers", "joykesten2"];
 
-//Problem: We need a simple way to look at a user's badge count and JavaScript points
-//Solution: Use Node.js to connect to Treehouse's API to get profile information to print out
-var http = require("http");
-var username = "chalkers";
+// users.forEach(function(username){
+//   profile.get(username);
+// });
 
-function printMessage(username, badgeCount, points) {
-  var message = username + " has " + badgeCount + " total badge(s) and " + points + "points in JavaScript";
-  console.log(message);
-};
+// users.forEach(profile.get);  // this works because forEach only takes one parameter
 
-//Connect to the API URL (http://teamtreehouse.com/username.json)
-var request = http.get("http://teamtreehouse.com/" + username + ".json", function(response){
-  console.log(response.statusCode);
-  //Read the data
-  var body = "";
-  response.on("data", function(chunk){
-    body += chunk;
-    // console.log("BODY: " + chunk);
-  });
-  response.on("end", function(end){
-    console.log(body);
-  })
-  //Parse the data
-  //Print the data
-});
+// console.log(process.argv)
 
-request.on("error", function(error){
-  console.error(error.message);
-});
+var usernames = process.argv.slice(2);  // index 2 of argv array
+
+usernames.forEach(profile.get);
