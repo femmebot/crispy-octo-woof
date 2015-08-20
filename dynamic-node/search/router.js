@@ -1,4 +1,5 @@
-var Profile = require("./profile.js");
+var Profile = require('./profile.js');
+var renderer = require('./renderer.js');
 
 // handle the HTTP route GET / and POST / i.e., Home
 function home(request, response) {
@@ -6,9 +7,10 @@ function home(request, response) {
   // if url == "/" && GET
     // show search field
     response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.write("Header\n");
-    response.write("Search\n");
-    response.end('Footer\n');
+    renderer.view('header', {}, response);
+    renderer.view('search', {}, response);
+    renderer.view('footer', {}, response);
+    response.end();
   // if url == "/" && POST
     // redirect to /:username
   };
@@ -21,7 +23,7 @@ function user(request, response){
 
   if (username.length > 0) {
     response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.write("Header\n"); // response.write(chunk[, encoding][, callback])
+    renderer.view('header', {}, response); // response.write(chunk[, encoding][, callback])
 
     // get JSON from treehouse
     var studentProfile = new Profile(username);  // see ./profile.js
@@ -39,15 +41,18 @@ function user(request, response){
       };
 
       // Simple response
-      response.write(values.username + " has " + values.badges + " badges " + "\n");
-      response.end("Footer\n");
+      renderer.view('profile', values, response);
+      renderer.view('footer', {}, response);
+      response.end();
     });
 
     // if there's an error
     studentProfile.on("error", function(error){
       // show the error
-      response.write(error.message + "\n");
-      response.end("Footer\n");
+      renderer.view('error', {errorMessage: error.message}, response);
+      renderer.view('search', {}, response);
+      renderer.view('footer', {}, response);
+      response.end();
     });
 
   };

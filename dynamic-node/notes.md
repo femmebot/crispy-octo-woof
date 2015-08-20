@@ -22,6 +22,8 @@ kill -9 <process id/PID from ps>
 Using `-9` kills the process immediately and doesn't do any cleanup.
 Refer to [Killing Processes](https://teamtreehouse.com/library/console-foundations/processes/killing-processes) for more information.
 
+
+
 Node.js APIs used:
 [http.createServer](https://nodejs.org/api/http.html#http_http_createserver_requestlistener)
 [response.writeHead](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
@@ -30,3 +32,11 @@ Node.js APIs used:
 [https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_arg](https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_arg)
 [request.url](https://nodejs.org/api/http.html#http_message_url)
 [response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
+
+Reading files from the file system:
+[File System](https://nodejs.org/api/fs.html)
+[fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+[fs.readFileSync](https://nodejs.org/api/fs.html#fs_fs_readfilesync_filename_options)
+[response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
+[require](https://nodejs.org/api/modules.html#modules_modules)
+[module.exports](https://nodejs.org/api/modules.html#modules_module_exports)
