@@ -25,18 +25,26 @@ Refer to [Killing Processes](https://teamtreehouse.com/library/console-foundatio
 
 
 Node.js APIs used:
-[http.createServer](https://nodejs.org/api/http.html#http_http_createserver_requestlistener)
-[response.writeHead](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
-[response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
-[response.end](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback)
+* [http.createServer](https://nodejs.org/api/http.html#http_http_createserver_requestlistener)
+* [response.writeHead](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
+* [response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
+* [response.end](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback)
 [https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_arg](https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_arg)
-[request.url](https://nodejs.org/api/http.html#http_message_url)
-[response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
+* [request.url](https://nodejs.org/api/http.html#http_message_url)
+
 
 Reading files from the file system:
-[File System](https://nodejs.org/api/fs.html)
-[fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
-[fs.readFileSync](https://nodejs.org/api/fs.html#fs_fs_readfilesync_filename_options)
-[response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
-[require](https://nodejs.org/api/modules.html#modules_modules)
-[module.exports](https://nodejs.org/api/modules.html#modules_module_exports)
+* [File System](https://nodejs.org/api/fs.html)
+* [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback)
+* [fs.readFileSync](https://nodejs.org/api/fs.html#fs_fs_readfilesync_filename_options)
+* [response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
+* [require](https://nodejs.org/api/modules.html#modules_modules)
+* [module.exports](https://nodejs.org/api/modules.html#modules_module_exports)
+
+Working with GET and POST body
+* [message.method](https://nodejs.org/api/http.html#http_message_method)
+* [querystring.parse()](https://nodejs.org/api/querystring.html#querystring_querystring_parse_str_sep_eq_options)
+
+Redirection
+* [HTTP Headers](http://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
+* [Redirection Status Codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection)
