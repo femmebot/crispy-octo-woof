@@ -25,7 +25,7 @@ function home(request, response) {
         // extract the username
         var query = querystring.parse(postBody.toString());
         // response.write(query.username);
-        
+
         response.writeHead(303, { "Location": "/" + query.username })
         response.end();
         // redirect to /:username
@@ -77,5 +77,17 @@ function user(request, response){
   };
 };
 
+function stylesheet (request, response){
+  if(request.url.indexOf('.css') != -1){ //request.url has the pathname, check if it conatins '.css'
+    fs.readFile(__dirname + '/css/stylesheet.css', function (err, data) {
+      if (err) console.log(err);
+      response.writeHead(200, {'Content-Type': 'text/css'});
+      response.write(data);
+      response.end();
+    });
+  };
+};
+
 module.exports.home = home;
 module.exports.user = user;
+module.exports.stylesheet = stylesheet;
