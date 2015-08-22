@@ -48,3 +48,4 @@ Working with GET and POST body
 Redirection
 * [HTTP Headers](http://en.wikipedia.org/wiki/List_of_HTTP_header_fields)
 * [Redirection Status Codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes#3xx_Redirection)
+* [Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml)
