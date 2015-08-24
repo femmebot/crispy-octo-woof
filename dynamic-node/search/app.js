@@ -1,5 +1,5 @@
 var router = require('./router.js');
-
+var port = process.env.PORT || 3000;
 // Problem: Create a way to view a user's badge count, js points from a web browser
 // Solution: Use Node.js to perform profile lookups and serve template via HTTP
 
@@ -15,8 +15,7 @@ http.createServer(function (request, response) {
   //   response.write(new Date() + "\n");
   // }, 1000);
   // response.end('Hello World\n');
-}).listen(1337, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:1337/');
+}).listen(port);
 
 
 // function that handles reading of files (templates) and populate with values
