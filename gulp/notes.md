@@ -18,6 +18,8 @@ To install `npm install gulp --save-dev` since it will only be used as a develop
 
 To install Gulp third-party libraries `npm install <pkg> --save-dev`
 
+**gulp-concat**
+
 * [gulp-concat](https://github.com/wearefractal/gulp-concat)
 
 ```
@@ -43,6 +45,19 @@ gulp.task("default", ["concatScripts"], function() {
 
 ```
 
+**gulp-uglify**
+* [gulp-uglify](https://github.com/terinjokes/gulp-uglify)
+
+
+
+**gulp-rename**
+* [gulp-rename](https://github.com/hparra/gulp-rename)
+
+
+
+
+
 #####Resources
 
 * [Gulp API Docs](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options)
+* Writing code for better minification results: [Better JavaScript Minification](http://alistapart.com/article/better-javascript-minification)
