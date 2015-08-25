@@ -72,6 +72,50 @@ gulp.task("default", ['concatScripts', 'minifyScripts', 'compileSass'], function
 * [Using source maps with SaSS](http://thesassway.com/intermediate/using-source-maps-with-sass)
 * [Treehouse blog post on sourcemaps](http://blog.teamtreehouse.com/introduction-source-maps)
 
+gulpfile.js with sourcemaps module added:
+
+```
+"use strict";
+
+var gulp = require('gulp'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    maps = require('gulp-sourcemaps');
+
+gulp.task("concatScripts", function() {
+    gulp.src([
+        'js/jquery.js',
+        'js/sticky/jquery.sticky.js',
+        'js/main.js'
+        ])
+    .pipe(maps.init())
+    .pipe(concat('app.js'))
+    .pipe(maps.write('./'))  // writes map file as a sibling to js folder
+    .pipe(gulp.dest('js'));
+});
+
+gulp.task("minifyScripts", function() {
+	gulp.src("js/app.js")
+		.pipe(uglify())
+		.pipe(rename('app.min.js'))
+		.pipe(gulp.dest('js'));
+});
+
+gulp.task('compileSass', function() {
+  gulp.src("scss/application.scss")
+      .pipe(maps.init())
+      .pipe(sass())
+      .pipe(maps.write('./'))  // write map file as a sibling to css folder
+      .pipe(gulp.dest('css'));
+})
+
+gulp.task("default", ['concatScripts', 'minifyScripts', 'compileSass'], function() {
+    console.log("the default task!!!!");
+});
+
+```
 
 
 #####Resources
