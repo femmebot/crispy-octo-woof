@@ -37,7 +37,20 @@ gulp.task('concatScripts', function() {
     .pipe(gulp.dest('js'));  // persists/writes to destination folder 'js'
 });  // to run task, type `gulp concatScripts` in terminal
 
-gulp.task("default", ["concatScripts"], function() {
+gulp.task("minifyScripts", function() {
+	gulp.src("js/app.js")
+		.pipe(uglify())
+		.pipe(rename('app.min.js'))
+		.pipe(gulp.dest('js'));
+});
+
+gulp.task('compileSass', function() {
+  gulp.src("scss/application.scss")
+      .pipe(sass())
+      .pipe(gulp.dest('css'));
+})
+
+gulp.task("default", ['concatScripts', 'minifyScripts', 'compileSass'], function() {
     console.log("the default task!!!!");
 });
 
@@ -48,12 +61,16 @@ gulp.task("default", ["concatScripts"], function() {
 **gulp-uglify**
 * [gulp-uglify](https://github.com/terinjokes/gulp-uglify)
 
-
-
 **gulp-rename**
 * [gulp-rename](https://github.com/hparra/gulp-rename)
 
+**gulp-sass**
+* [gulp-sass](https://github.com/dlmanning/gulp-sass)
 
+**gulp-sourcemaps**
+* [gulp-sourcemaps](https://github.com/floridoo/gulp-sourcemaps)
+* [Using source maps with SaSS](http://thesassway.com/intermediate/using-source-maps-with-sass)
+* [Treehouse blog post on sourcemaps](http://blog.teamtreehouse.com/introduction-source-maps)
 
 
 
