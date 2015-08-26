@@ -117,6 +117,70 @@ gulp.task("default", ['concatScripts', 'minifyScripts', 'compileSass'], function
 
 ```
 
+#####Build Task Pipeline
+
+```
+"use strict";
+
+var gulp = require('gulp'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    maps = require('gulp-sourcemaps'),
+     del = require('del');
+
+gulp.task("concatScripts", function() {
+    return gulp.src([
+        'js/jquery.js',
+        'js/sticky/jquery.sticky.js',
+        'js/main.js'
+        ])
+    .pipe(maps.init())
+    .pipe(concat('app.js'))
+    .pipe(maps.write('./'))
+    .pipe(gulp.dest('js'));
+});
+
+gulp.task("minifyScripts", ["concatScripts"], function() {
+  return gulp.src("js/app.js")
+    .pipe(uglify())
+    .pipe(rename('app.min.js'))
+    .pipe(gulp.dest('js'));
+});
+
+gulp.task('compileSass', function() {
+  return gulp.src("scss/application.scss")
+      .pipe(maps.init())
+      .pipe(sass())
+      .pipe(maps.write('./'))
+      .pipe(gulp.dest('css'));
+});
+
+gulp.task('watchSass', function() {
+  // return not needed b/c non task-dependent
+  gulp.watch('scss/**/*.scss', ['compileSass']);  // glob pattern matches dir named scss and file ending in .scss
+})
+
+gulp.task('clean', function(){
+  // removes files created by previous gulp tasks
+  del(['dist', 'css/application.css*', 'js/app*.js*']);
+})
+
+gulp.task("build", ['minifyScripts', 'compileSass'], function(){
+  // create a dist package
+  return gulp.src(['css/application.css', 'js/app.min.js', 'index.html',
+                   'img/**', 'fonts/**'], { base: './' })  // base maintains the dir structure
+            .pipe(gulp.dest('dist'));
+});
+
+gulp.task("default", ["clean"], function(){
+  // default task cleans up task-generated files/folders as a dependency,
+  // then begins the build process
+  gulp.start('build');  // start method not widely documented
+});
+
+```
 
 #####Resources
 
