@@ -182,6 +182,81 @@ gulp.task("default", ["clean"], function(){
 
 ```
 
+#####Development Pipeline Tasks
+
+Use gulp to watch files for changes and recompile them
+
+```
+"use strict";
+
+var gulp = require('gulp'),
+  concat = require('gulp-concat'),
+  uglify = require('gulp-uglify'),
+  rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    maps = require('gulp-sourcemaps'),
+     del = require('del');
+
+gulp.task("concatScripts", function() {
+    return gulp.src([
+        'js/jquery.js',
+        'js/sticky/jquery.sticky.js',
+        'js/main.js'
+        ])
+    .pipe(maps.init())
+    .pipe(concat('app.js'))
+    .pipe(maps.write('./'))
+    .pipe(gulp.dest('js'));
+});
+
+// minify only necessary for Production, not Development pipeline
+gulp.task("minifyScripts", ["concatScripts"], function() {
+  return gulp.src("js/app.js")
+    .pipe(uglify())
+    .pipe(rename('app.min.js'))
+    .pipe(gulp.dest('js'));
+});
+
+gulp.task('compileSass', function() {
+  return gulp.src("scss/application.scss")
+      .pipe(maps.init())
+      .pipe(sass())
+      .pipe(maps.write('./'))
+      .pipe(gulp.dest('css'));
+});
+
+// gulp.task('watchSass', function() {
+//   gulp.watch('scss/**/*.scss', ['compileSass']);
+// })
+
+gulp.task('watchFiles', function() {
+  gulp.watch('scss/**/*.scss', ['compileSass']);
+  gulp.watch('js/main.js', ['concatScripts']);
+})
+
+gulp.task('clean', function() {
+  del(['dist', 'css/application.css*', 'js/app*.js*']);
+});
+
+gulp.task("build", ['minifyScripts', 'compileSass'], function() {
+  return gulp.src(["css/application.css", "js/app.min.js", 'index.html',
+                   "img/**", "fonts/**"], { base: './'})
+            .pipe(gulp.dest('dist'));
+});
+
+gulp.task('serve', ['watchFiles']);
+
+gulp.task("default", ["build"]);
+
+```
+
+Additional Resources:
+* [Use Gulp to inject text into a file](https://github.com/klei/gulp-inject)
+* [Use Gulp to serve your app in development with browser sync](http://www.browsersync.io/docs/gulp/)
+* [Gulp advanced example on GitHub](https://github.com/hdngr/advanced-gulp-example)
+* [All about Yeoman and Bower](http://yeoman.io/)
+
+
 #####Resources
 
 * [Gulp API Docs](https://github.com/gulpjs/gulp/blob/master/docs/API.md#gulpsrcglobs-options)
